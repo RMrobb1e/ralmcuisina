@@ -28,6 +28,9 @@ const controlSearch = async () => {
 
     searchView.clearInput();
     searchView.clearResult();
+    listView.clearList();
+    recipeView.clearRecipe();
+
     renderLoader(elements.searchRes);
 
     try {
@@ -46,12 +49,6 @@ elements.searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   controlSearch();
 });
-
-// // For TESTING
-// window.addEventListener('load', (e) => {
-//   e.preventDefault();
-//   controlSearch();
-// });
 
 elements.searchResPages.addEventListener('click', (e) => {
   const btn = e.target.closest(`.btn-inline`);
@@ -109,6 +106,7 @@ const controlRecipe = async () => {
  * LIST CONTROLLER
  */
 const controlList = () => {
+  // listView.clearList();
   // Create a new list if there is none yet
   if (!state.list) state.list = new List();
 
